@@ -1,5 +1,5 @@
 <template>
     <header>
-        Photos
+       All Photos
     </header>
 </template>
