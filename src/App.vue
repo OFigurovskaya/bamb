@@ -2,7 +2,8 @@
 import { usePhotoList } from './stores/PhotoList.js';
 import PhotoHeader from './components/PhotoHeader.vue';
 import PhotoListVue from './components/PhotoList.vue';
-import PhotoLoader from './components/PhotoLoader.vue'
+import PhotoLoader from './components/PhotoLoader.vue';
+import PhotoFilter from './components/PhotoFilter.vue';
 import { ref, onMounted } from 'vue'
 
 const photoList = usePhotoList();
@@ -16,10 +17,10 @@ onMounted(() => {
 <template>
   <main>
     <PhotoHeader />
+    <PhotoFilter />
     <PhotoLoader v-if="photoList.loading" />
     <div v-else>
       <PhotoListVue />
-      <!-- <PhotoListVue v-for="photo of photoList.allList" :key="photo.id" :photo="photo" /> -->
     </div>
 
   </main>

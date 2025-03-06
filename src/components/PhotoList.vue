@@ -1,14 +1,6 @@
 <script setup>
-// const props = defineProps({
-//     photo: {
-//         type: Object,
-//         required: true,
-//         default: () => { }
-//     }
-// });
 import { usePhotoList } from '../stores/PhotoList';
 const photoList = usePhotoList();
-
 
 </script>
 
@@ -25,8 +17,8 @@ const photoList = usePhotoList();
             <th>{{ photo.id }}</th>
             <th>{{ photo.albumId }}</th>
             <th>{{ photo.title }}</th>
-            <th><img :src="`${photo.url}`" :alt="`${photo.url}`"></th>
-            <th><img :src="`${photo.thumbnailUrl}`" :alt="`${photo.thumbnailUrl}`"></th>
+            <!-- <th><img :src="`${photo.url}`" :alt="`${photo.url}`"></th>
+            <th><img :src="`${photo.thumbnailUrl}`" :alt="`${photo.thumbnailUrl}`"></th>  -->
         </tr>
     </table>
 </template>
