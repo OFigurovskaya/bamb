@@ -18,7 +18,8 @@ onMounted(() => {
     <PhotoHeader />
     <PhotoLoader v-if="photoList.loading" />
     <div v-else>
-      <PhotoListVue v-for="photo of photoList.allList" :key="photo.id" :photo="photo" />
+      <PhotoListVue />
+      <!-- <PhotoListVue v-for="photo of photoList.allList" :key="photo.id" :photo="photo" /> -->
     </div>
 
   </main>
