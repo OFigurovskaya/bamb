@@ -15,7 +15,6 @@ onMounted(() => {
 
 <template>
   <main>
-    {{  photoList.loading }}
     <PhotoHeader />
     <PhotoLoader v-if="photoList.loading" />
     <div v-else>
