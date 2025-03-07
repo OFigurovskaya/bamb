@@ -1,8 +1,15 @@
 <script setup>
-import { ref } from 'vue'
-const model = ref('');
+import { ref } from 'vue';
+import { usePhotoFilter } from '../stores/PhotoFilter'
+
+// const model = ref('');
+const photoFilter = usePhotoFilter();
 </script>
 
 <template>
-    <input type="text" placeholder="Введите номер альбома" v-model="model">
+    <form action="" @submit.prevent = 'photoFilter.validateFilter'>
+        <input type="text" placeholder="Введите номер альбома (или несколько через пробел)" v-model="photoFilter.inputValue" >
+        {{ photoFilter.error }}
+    </form>
+   
 </template>

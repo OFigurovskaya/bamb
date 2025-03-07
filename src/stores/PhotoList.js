@@ -24,7 +24,6 @@ import { ref, computed, watch } from 'vue'
 export const usePhotoList = defineStore('photoList', () => {
     const allList = ref([]);
     const loading = ref(false);
-    const url = ref('');
 
     //Получить все фотографии
     const getAllList = computed(async () => {
@@ -50,12 +49,6 @@ export const usePhotoList = defineStore('photoList', () => {
         }, { deep: true })
 
     });
-
-    const getUrl = () => {
-        for (let elem of allList) {
-            console.log(elem);
-        }
-    }
 
     return {
         allList, loading, getAllList
