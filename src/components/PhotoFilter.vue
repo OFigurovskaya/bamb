@@ -7,9 +7,9 @@ const photoFilter = usePhotoFilter();
 </script>
 
 <template>
-    <form action="" @submit.prevent = 'photoFilter.validateFilter'>
+    <form action=""  @submit.prevent="photoFilter.validateFilter(); photoFilter.goFilter()">
         <input type="text" placeholder="Введите номер альбома (или несколько через пробел)" v-model="photoFilter.inputValue" >
-        {{ photoFilter.error }}
+        {{ photoFilter.error }} 
     </form>
    
 </template>
