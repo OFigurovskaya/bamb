@@ -10,15 +10,13 @@ export const usePhotoFilter = defineStore('photoFilter', () => {
     const photoList = usePhotoList()
 
 
-
+    //валидация формы
     const validateFilter = () => {
         if (/\d|\d\s/.test(inputValue.value)) {
             for (let elem of inputValue.value.split(' ')) {
                 console.log(elem);
                 numberAlbum.value.push(Number(elem))
             }
-            console.log(numberAlbum.value);
-            // numberAlbum.value = inputValue.value
             inputValue.value = '';
             error.value = '';
         } else {
@@ -27,13 +25,10 @@ export const usePhotoFilter = defineStore('photoFilter', () => {
         }
     };
 
-    const goFilter =  () => {
-        // photoList.allList.value = ref([]);
-        // console.log(photoList.allList.value);
+    //фильтрация формы
+    const goFilter = () => {
         photoList.loading = true;
-        setTimeout(()  => {
-            photoList.allList.value = ref([]);
-            console.log(photoList.allList.value);
+        setTimeout(() => {
             photoList.loading = false;
             const myLink = 'https://jsonplaceholder.typicode.com/photos?'
 
@@ -41,12 +36,11 @@ export const usePhotoFilter = defineStore('photoFilter', () => {
 
             numberAlbum.value.forEach((x) => {
                 apiUrl += `albumId=${x}&`;
-                console.log(apiUrl);
                 return photoList.allList.value = fetch(apiUrl)
-                .then((response) => response.json())
-                .then((json) => photoList.allList = (json));
+                    .then((response) => response.json())
+                    .then((json) => photoList.allList = (json));
             });
-            return (photoList.allList.value);
+            numberAlbum.value = [];
         }, 2000);
     };
 

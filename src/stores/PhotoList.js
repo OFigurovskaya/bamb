@@ -40,7 +40,7 @@ export const usePhotoList = defineStore('photoList', () => {
         //Сохранить общий массив фото в ЛС
         const photoInLocalStorage = localStorage.getItem('allList')
         if (photoInLocalStorage) {
-            console.log(JSON.parse(photoInLocalStorage));
+            // console.log(JSON.parse(photoInLocalStorage));
         }
 
         //Отслеживать и созранять изменения в общем массиве фото
