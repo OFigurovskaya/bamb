@@ -14,7 +14,6 @@ export const usePhotoFilter = defineStore('photoFilter', () => {
     const validateFilter = () => {
         if (/\d|\d\s/.test(inputValue.value)) {
             for (let elem of inputValue.value.split(' ')) {
-                console.log(elem);
                 numberAlbum.value.push(Number(elem))
             }
             inputValue.value = '';
@@ -29,17 +28,22 @@ export const usePhotoFilter = defineStore('photoFilter', () => {
     const goFilter = () => {
         photoList.loading = true;
         setTimeout(() => {
+            console.log(numberAlbum.value.length);
             photoList.loading = false;
             const myLink = 'https://jsonplaceholder.typicode.com/photos?'
 
             let apiUrl = `${myLink}`;
 
-            numberAlbum.value.forEach((x) => {
-                apiUrl += `albumId=${x}&`;
-                return photoList.allList.value = fetch(apiUrl)
-                    .then((response) => response.json())
-                    .then((json) => photoList.allList = (json));
-            });
+            if (numberAlbum.value.length > 0) {
+                numberAlbum.value.forEach((x) => {
+                    apiUrl += `albumId=${x}&`;
+                    return photoList.allList.value = fetch(apiUrl)
+                        .then((response) => response.json())
+                        .then((json) => photoList.allList = (json));
+                });
+            } else {
+                photoList.allList.value = photoList.getAllList
+            }
             numberAlbum.value = [];
         }, 2000);
     };
