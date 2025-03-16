@@ -1,15 +1,18 @@
 <script setup>
-import { ref } from 'vue';
-import { usePhotoFilter } from '../stores/PhotoFilter'
+import { usePhotoFilter } from '../stores/PhotoFilter';
+import { usePhotoList } from '../stores/PhotoList'
 
 // const model = ref('');
 const photoFilter = usePhotoFilter();
+const photoList = usePhotoList();
 </script>
 
 <template>
     <form action=""  @submit.prevent="photoFilter.validateFilter(); photoFilter.goFilter()">
         <input type="text" placeholder="Введите номер альбома (или несколько через пробел)" v-model="photoFilter.inputValue" >
-        {{ photoFilter.error }} 
+        <button class="searchBtn" @click.prevent="photoFilter.validateFilter(); photoFilter.goFilter()"
+        :disabled='photoList.loading'
+        >Поиск</button>
     </form>
    
 </template>

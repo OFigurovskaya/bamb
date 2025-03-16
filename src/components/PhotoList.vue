@@ -1,34 +1,59 @@
+
 <script setup>
 import { usePhotoList } from '../stores/PhotoList';
+import { defineProps } from 'vue';
+
 const photoList = usePhotoList();
 
 </script>
-
+  
 <template>
-    <table class="table">
-        <tr>
-            <th>id</th>
-            <th>albumId</th>
-            <th>title</th>
-            <th>url</th>
-            <th>thumbnailUrl</th>
-        </tr>
-        <tr v-for="photo of photoList.allList" :key="photo.id" :photo="photo">
-            <th>{{ photo.id }}</th>
-            <th>{{ photo.albumId }}</th>
-            <th>{{ photo.title }}</th>
-            <!-- <th><img :src="`${photo.url}`" :alt="`${photo.url}`"></th>
-            <th><img :src="`${photo.thumbnailUrl}`" :alt="`${photo.thumbnailUrl}`"></th>  -->
-        </tr>
-    </table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>albumId</th>
+        <th>title</th>
+        <th>url</th>
+        <th>thumbnailUrl</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="photo in photoList.allList" :key="photo.id">
+        <td>{{ photo.id }}</td>
+        <td>{{ photo.albumId }}</td>
+        <td>{{ photo.title }}</td>
+        <td>
+          <a :href="photo.url" target="_blank" rel="noopener noreferrer">View Image</a>
+        </td>
+        <td>
+          <a :href="photo.thumbnailUrl" target="_blank" rel="noopener noreferrer">View Thumbnail</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </template>
-
+  
 <style>
-table,
+.photo-container {
+  height: 600px;
+  overflow-y: auto;
+}
+
+.table,
 th,
 td {
-    border: 1px solid black;
-    border-collapse: collapse;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.load-more {
+  height: 1px;
+  /* Минимальная высота для наблюдения */
+}
+
+.table {
+  margin: 0 auto;
 }
 </style>
 

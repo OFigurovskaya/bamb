@@ -15,6 +15,12 @@ a,
   padding: 3px;
 }
 
+table {
+  max-width: 600px;
+  max-height: 600px;
+  overflow: hidden;
+}
+
 @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);

@@ -28,7 +28,6 @@ export const usePhotoFilter = defineStore('photoFilter', () => {
     const goFilter = () => {
         photoList.loading = true;
         setTimeout(() => {
-            console.log(numberAlbum.value.length);
             photoList.loading = false;
             const myLink = 'https://jsonplaceholder.typicode.com/photos?'
 
@@ -42,7 +41,7 @@ export const usePhotoFilter = defineStore('photoFilter', () => {
                         .then((json) => photoList.allList = (json));
                 });
             } else {
-                photoList.allList.value = photoList.getAllList
+                return photoList.allList.value = photoList.fetchPhotos()
             }
             numberAlbum.value = [];
         }, 2000);
