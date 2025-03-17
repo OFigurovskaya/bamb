@@ -9,7 +9,6 @@ export const usePhotoFilter = defineStore('photoFilter', () => {
 
     const photoList = usePhotoList()
 
-
     //валидация формы
     const validateFilter = () => {
         if (/\d|\d\s/.test(inputValue.value)) {
@@ -17,6 +16,8 @@ export const usePhotoFilter = defineStore('photoFilter', () => {
                 numberAlbum.value.push(Number(elem))
             }
             inputValue.value = '';
+            error.value = '';
+        } else if (!inputValue.value) {
             error.value = '';
         } else {
             error.value = 'Введено некорректное значение. Введите номер альбома (или несколько через пробел)';
@@ -41,6 +42,7 @@ export const usePhotoFilter = defineStore('photoFilter', () => {
                         .then((json) => photoList.allList = (json));
                 });
             } else {
+
                 return photoList.allList.value = photoList.fetchPhotos()
             }
             numberAlbum.value = [];
