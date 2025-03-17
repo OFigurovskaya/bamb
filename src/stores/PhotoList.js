@@ -18,18 +18,6 @@ export const usePhotoList = defineStore('photoList', () => {
             loading.value = false;
         }
     };
-    
-
-    // WORKED
-    //const dataSortId = () => {
-    //     allList.value.sort(function(a, b) {       
-    //         if(b.id < a.id) {
-    //             return (parseFloat(b.id) - parseFloat(a.id));
-    //         } else {
-    //             return (parseFloat(a.id) - parseFloat(b.id));
-    //         }
-    //     });
-    // }
 
     const dataSort = (name) => {
         allList.value.sort(function(a, b) {      
