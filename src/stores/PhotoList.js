@@ -18,24 +18,25 @@ export const usePhotoList = defineStore('photoList', () => {
             loading.value = false;
         }
     };
+    
 
-    const dataSortId = () => {
-        allList.value.sort(function(a, b) {       
-            if(b.id < a.id) {
-                return (parseFloat(b.id) - parseFloat(a.id));
-            } else {
-                return (parseFloat(a.id) - parseFloat(b.id));
-            }
-            
-        });
-    }
+    // WORKED
+    //const dataSortId = () => {
+    //     allList.value.sort(function(a, b) {       
+    //         if(b.id < a.id) {
+    //             return (parseFloat(b.id) - parseFloat(a.id));
+    //         } else {
+    //             return (parseFloat(a.id) - parseFloat(b.id));
+    //         }
+    //     });
+    // }
 
-    const dataSortAlbumId = () => {
-        allList.value.sort(function(a, b) {       
-            if(b.albumId < a.albumId) {
-                return (parseFloat(b.albumId) - parseFloat(a.albumId));
+    const dataSort = (name) => {
+        allList.value.sort(function(a, b) {      
+            if(b[name] < a[name]) {
+                return (parseFloat(b[name]) - parseFloat(a[name]));
             } else {
-                return (parseFloat(a.albumId) - parseFloat(b.albumId));
+                return (parseFloat(a[name]) - parseFloat(b[name]));
             }
         });
     }
@@ -57,6 +58,6 @@ export const usePhotoList = defineStore('photoList', () => {
     });
 
     return {
-        allList, loading, fetchPhotos, dataSortId, dataSortAlbumId
+        allList, loading, fetchPhotos, dataSort
     };
 });
