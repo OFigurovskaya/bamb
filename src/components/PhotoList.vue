@@ -10,7 +10,7 @@ const photoList = usePhotoList();
   <table class="table">
     <thead>
       <tr>
-        <th>id</th>
+        <th @click="photoList.dataSort(id)">id</th>
         <th>albumId</th>
         <th>title</th>
         <th>url</th>

@@ -7,8 +7,7 @@ const photoChangeTheme = usePhotoChangeTheme();
 </script>
 
 <template>
-    {{ photoChangeTheme.textBtn }}
-  <button @click="photoChangeTheme.fetchText"></button>
+  <button @click="photoChangeTheme.toggleTheme()">{{ photoChangeTheme.textBtn }}</button>
 </template>
 
 

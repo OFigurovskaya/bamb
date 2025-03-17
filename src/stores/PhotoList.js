@@ -53,7 +53,7 @@
 //     onMounted(() => {
 //         getAllList(); // Call the function to fetch the photo list
 //       });
-    
+
 
 //     return {
 //         allList, loading, getAllList
@@ -82,6 +82,13 @@ export const usePhotoList = defineStore('photoList', () => {
         }
     };
 
+    const dataSort = (x) => {
+        allList.value.sort(function(a, b) {
+            return (parseFloat(b.x) - parseFloat(a.x));
+        });
+        // console.log(allList.value);
+    }
+
     const loadFromLocalStorage = () => {
         const photoInLocalStorage = localStorage.getItem('allList');
         if (photoInLocalStorage) {
@@ -94,11 +101,11 @@ export const usePhotoList = defineStore('photoList', () => {
     }, { deep: true });
 
     onMounted(() => {
-        loadFromLocalStorage(); 
-        fetchPhotos(); 
+        loadFromLocalStorage();
+        fetchPhotos();
     });
 
     return {
-        allList, loading, fetchPhotos
+        allList, loading, fetchPhotos, dataSort
     };
 });

@@ -1,16 +1,24 @@
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { defineStore } from 'pinia';
 
 export const usePhotoChangeTheme = defineStore('photoChangeTheme', () => {
-    const textBtn = ref('552');
+    const textBtn = ref('dark theme');
 
-    const fetchText = () => {
+
+    const toggleTheme = () => {
         if(document.querySelector('main').classList.contains('ligth')) {
-            console.log('!');
+            document.querySelector('main').classList.remove('ligth');
+            document.querySelector('main').classList.add('dark');
+            textBtn.value = 'ligth theme';
+        } else {
+            document.querySelector('main').classList.remove('dark')
+            document.querySelector('main').classList.add('ligth');
+            textBtn.value = 'dark theme';
         }
     }
 
+
     return {
-       textBtn, fetchText
+       textBtn, toggleTheme
     } 
 })
