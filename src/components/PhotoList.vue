@@ -1,7 +1,6 @@
 
 <script setup>
 import { usePhotoList } from '../stores/PhotoList';
-import { defineProps } from 'vue';
 
 const photoList = usePhotoList();
 
@@ -35,9 +34,15 @@ const photoList = usePhotoList();
 </template>
   
 <style>
-.photo-container {
+.table {
   height: 600px;
   overflow-y: auto;
+}
+
+th  {
+  position: sticky; /* Элемент фиксируется при прокрутке */
+    top: 0; /* Фиксация верхнего положения */
+    background-color: #fff; /* Цвет фона */
 }
 
 .table,
