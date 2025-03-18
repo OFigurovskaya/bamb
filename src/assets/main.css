@@ -1,15 +1,21 @@
 @import './base.css';
 @import "tailwindcss";
 
+
 #app {
-  max-width: 1280px;
+  width: 100%;
+  height: 100vh;
   margin: 0 auto;
-  /* padding: 2rem; */
+  display: grid;
   font-weight: normal;
+  padding: 0 1vw;
 }
 
 main {
-    padding: 2rem;
+  margin: 0 auto;
+    padding: 1vw;
+    width: 100%;
+    text-align: center;
 }
 
 a,
@@ -20,11 +26,26 @@ a,
   padding: 3px;
 }
 
-table {
+.photoList {
   max-width: 600px;
-  max-height: 600px;
-  overflow: hidden;
+  height: 600px;
+  overflow-y: scroll;
+  margin: 0 auto;
 }
+
+
+th {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
 
 @media (hover: hover) {
   a:hover {
@@ -33,24 +54,51 @@ table {
 }
 
 @media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
+  .photoList {
+    width: 600px;
+  }  
+}
+
+@media (min-width: 320px) {
+  .photoList {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1500px) {
+  .photoList {
+    width: 900px;
+    font-size: calc(1vw + 0.5vh);
+  }
+  .photoList__thead {
+    font-size: calc(1vw + 0.5vh);
+  }
+  .header__text {
+    font-size: calc(1vw + 2vh);
+  }
+}
+
+@media (min-width: 1920px) {
+  .photoList {
+    width: 1200px;
+    font-size: calc(1vw + 0.5vh);
   }
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+  .photoList__thead {
+    font-size: calc(1vw + 0.5vh);
+  }
+
+  .header__text {
+    font-size: calc(1vw + 2vh);
   }
 }
 
 
 .dark {
-  background-color: #000;
-  color: #fff;
+  background-color: #083344;
+  color: #d9f99d;
 }
 
 .ligth {
-  background-color: rgb(243, 244, 245);
+  background-color: #ecfeff;
 }

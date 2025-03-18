@@ -12,14 +12,12 @@ const photoList = usePhotoList();
 </script>
 
 <template>
-  <main class="ligth">
+  <main class="ligth grid grid-cols-5 justify-evenly">
     <PhotoBtnTheme />
     <PhotoHeader />
     <PhotoFilter />
     <PhotoLoader v-if="photoList.loading" />
-    <div v-else>
-        <PhotoList />
-    </div>
+    <PhotoList v-else/>
   </main>
 </template>
 
