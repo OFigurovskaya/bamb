@@ -4,6 +4,7 @@ import { ref, watch, onMounted } from 'vue';
 export const usePhotoList = defineStore('photoList', () => {
     const allList = ref([]);
     const loading = ref(false);
+    const errorLoad = ref('');
 
     // Action to fetch all photos
     const fetchPhotos = async () => {
@@ -13,6 +14,7 @@ export const usePhotoList = defineStore('photoList', () => {
             const json = await response.json();
             allList.value = json;
         } catch (error) {
+            console.log('net');
             console.error("Error fetching photos:", error);
         } finally {
             loading.value = false;

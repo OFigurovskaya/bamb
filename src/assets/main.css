@@ -46,6 +46,10 @@ td {
   border-collapse: collapse;
 }
 
+.photoFilter__input {
+  margin-bottom: 2vh;
+}
+
 
 @media (hover: hover) {
   a:hover {
@@ -57,11 +61,18 @@ td {
   .photoList {
     width: 600px;
   }  
+  .photoFilter__input {
+    font-size: calc(1vw + 1vh);
+  }
 }
 
 @media (min-width: 320px) {
   .photoList {
     max-width: 100%;
+  }
+
+  .header__text {
+    font-size: calc(1vw + 3vh);
   }
 }
 
@@ -75,6 +86,12 @@ td {
   }
   .header__text {
     font-size: calc(1vw + 2vh);
+  }
+  .btn {
+    font-size: calc(1vw + 1vh);
+  }
+  .photoLoader__loader {
+    width: 10vw;
   }
 }
 
