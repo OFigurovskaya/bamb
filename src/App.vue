@@ -1,10 +1,10 @@
 <script setup>
-import { usePhotoList } from './stores/PhotoList.js';
-import PhotoHeader from './components/PhotoHeader.vue';
-import PhotoList from './components/PhotoList.vue';
-import PhotoLoader from './components/PhotoLoader.vue';
-import PhotoFilter from './components/PhotoFilter.vue';
-import PhotoBtnTheme from './components/PhotoBtnTheme.vue';
+import { usePhotoList } from '../src/stores/PhotoList.js';
+import PhotoHeader from '../src/components/PhotoHeader.vue';
+import PhotoList from '../src/components/PhotoList.vue';
+import PhotoLoader from '../src/components/PhotoLoader.vue';
+import PhotoFilter from '../src/components/PhotoFilter.vue';
+import PhotoBtnTheme from '../src/components/PhotoBtnTheme.vue';
 
 
 const photoList = usePhotoList();
