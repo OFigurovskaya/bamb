@@ -1,29 +1,20 @@
 # bamb
 
-This template should help get you started developing with Vue 3 in Vite.
+Пэт-проект просмотр фотографий на Vue 3
 
-## Recommended IDE Setup
+Деплой: https://ofigurovskaya.github.io/bamb/
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Данные загружаются с https://jsonplaceholder.typicode.com/guide/ (бесплатный API для получения данных (фотографий)), может понадобиться впн.
+Также наблюдаются проблемы с сайтом https://via.placeholder.com/, поэтому сами фотографии и их миниатюры представлены ссылками.
 
-## Customize configuration
+Функционал:
 
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+При загрузке страницы уходит запрос на сервер за списком фотографий
+В таблице можно фильтровать фотографии по возрастанию и убыванию по следующим параметрам (при клике по соответствующему заголовку таблицы):
+id
+id альбома
+При вводе номера альбома в строку "поиск" отправляется запрос на API с учетом введенных ID альбомов. Поддерживается также отпрака формы при нажатии кнопки Enter. Поддерживается множественный ввод через пробел. 
+На поле ввода установлена валидация: в случае неверно введенных данных появляется сообщение об ошибке. При отсутствии номера в поле ввода запрашиваются все альбомы. 
+Кнопка 'dark theme' позволяет переключаться со светлой темы на темную и обратно.
+Список фотографий хранится в LocalStorage.
+Шапка таблицы прилипает к верхней части блока и видна при прокрутке
